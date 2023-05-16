@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito Sans">
+    <script defer src="/javascripts/login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item" id="item1">
+            <div class="login">
+                <div class="bold">I am here for Hiring..</div>
+                <div class="image" id="im1">
+                    <img src="/images/logos/svg2.svg" width="200" height="200">
+                </div>
+                <div class="lower">
+                    <button id="but1">Sign Up as a Recruiter</button>
+                    <div>Already have an acount?</div>
+                    <div class="signIn">
+                       <button class="employer">Login</button>
+                    </div>
+                </div>
+            </div>   
+        </div>
+
+        <div class="item hidden" id="form1">
+            <form action="/login/reg_emploee" method="post">
+                <div class="logo1">
+                    <img src="/images/logos\logo2.png" width="100px" height="80px
+                    ">
+                    <div class="Welcome">Welcome here! Let me help you signing up.</div>
+                    <div class="inputs">
+                        <input type="email" placeholder="Enter your email id" name="uname" required>
+            
+                        <input type="password" placeholder="Enter your password" name="psw" required>
+                    </div>
+
+                    <div class="sign">
+                        <button type="submit"
+                        class="signUp
+                        ">Sign Up</button>
+                        <span class="backwards1 backwards"><a href="#">I dont think of signing up</a></span>
+                    </div>
+                </div>
+            </form>
+        </div>     
+
+        <div class="logo">
+        <img class="logo-image" src="/images\logos\logo2.png" alt="logo" width="100" height="150">
+        </div>
+
+        <div class="loginFrame fade2">
+            <div class="logo1">
+                <img src="/images\logos\logo2.png" width="100px" height="80px
+                ">
+                <form action="login/sign-in" method="post">
+                    <div class="Welcome">Welcome to HireHub.</div>
+                    <div class="inputs">
+                        <input type="email" placeholder="Enter your email id" name="uname" required>
+                        <input type="password" placeholder="Enter your password" name="psw" required>
+                    </div>
+
+                    <div class="account">
+                        <button type="post" name='submit' class="signInBut">
+                            Sign in
+                        </button>
+                        <a href="#" class="close"> I dont want to Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="item" id="item2">
+            <div class="login">
+                <div class="bold">I am Seeking Job..</div>
+                <div class="image" id="im2">
+                    <img src="images\logos\svg1.svg" width="200" height="200">  
+                </div>
+                <div class="lower">
+                    <button id="but2">Sign Up as a Job Seeker</button>
+                    <div>Already have an acount?</div>
+                    <div class="signIn">
+                        <button class="seeker">Login</button>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    
+        <div class="item hidden" id="form2">
+            <div class="logo1">
+                <form action="/login/reg_employer" method="post">
+                    <img src="images\logos\logo2.png" width="100px" height="80px
+                    ">
+                    <div class="Welcome">Welcome here! Let me help you signing up.</div>
+                    <div class="inputs">
+                        <input type="email" placeholder="Enter your email id" name="uname" required>
+            
+                        <input type="password" placeholder="Enter your password" name="psw" required>
+                    </div>
+                    
+                    <div class="sign">
+                        <button type="submit"
+                        class="signUp
+                        ">Sign Up</button>
+                        <span class="backwards2 backwards"><a href="#">I dont think of signing up</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
