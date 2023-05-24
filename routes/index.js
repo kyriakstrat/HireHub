@@ -5,6 +5,7 @@ const Application = require("../models/application");
 const Emploee = require("../models/emploee");
 const Employer = require("../models/employer");
 const { default: mongoose } = require('mongoose');
+const { registerHelper } = require('hbs');
 // const ApplicationRequest = require("../models/applicationRequest");
 
 
@@ -13,7 +14,6 @@ router.get('/', async function(req, res, next) {
   if(req.session.user){
     if(req.session.employer){
       const applications = await Application.find({author:req.session.user}).populate('applicants');
-      console.log(applications);
       res.render('index',{
         employer:true,
         appsAny:applications.length,
@@ -39,7 +39,6 @@ router.get('/', async function(req, res, next) {
         app.stat = appStatus[i];
         i++;
       }
-      console.log(tmp);
       // console.log(myApplications);
       // console.log(appStatus);
       
@@ -95,10 +94,8 @@ router.get('/cancel/:id',async function(req,res){
   const app = await Application.findById(req.params.id);
   let i=0;
   for(applicant of app.applicants){
-    console.log(applicant);
     if(applicant.userId==req.session.user){
       app.applicants.splice(i,1);
-      console.log(app.applicants);
       break;
     }
     i++;
@@ -139,5 +136,46 @@ router.get('/reject/:id/:app',async function(req,res){
   }
 });
 
+router.post('/filterBar',async function(req,res){
+  const city = req.body.region;
+  const jobType = req.body.jobType;
+  const field = req.body.proffesion;
 
+  let query = {
+    "applicants.userId": { $ne: req.session.user },
+  };
+  if(city!='all'){query.region=city;}
+  if(jobType!='all'){query.typeOfWork=jobType;}
+  if(field!='all'){query.field=field;}
+
+  const applications = await Application.find(query).populate('author');
+  const myApplications = await Application.find({"applicants.userId":req.session.user}).populate("author" );
+  // appStatus = JSON.parse(JSON.stringify(myApplications));
+  appStatus=[];
+  for(app of myApplications){
+    for(applicant of app.applicants){
+      if(applicant.userId == req.session.user){
+        appStatus.push(applicant.status);
+        break;
+      }
+    }
+  }
+
+  let tmp = JSON.parse(JSON.stringify(myApplications));
+  let i=0;
+  for(app of tmp){
+    app.stat = appStatus[i];
+    i++;
+  }
+  // console.log(myApplications);
+  // console.log(appStatus);
+  
+  res.render('index',{
+    employer:false,
+    appsAny:applications.length,
+    apps:applications,
+    myAppsAny:myApplications.length,
+    myApps:tmp,
+  });
+});
 module.exports = router;

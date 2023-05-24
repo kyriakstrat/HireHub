@@ -78,7 +78,7 @@ router.post('/editProfile',upload.single('avatar'),async function(req,res){
     }
     if(req.file){
         // delete the old photo
-        if(userDB.avatar!='/images/profiles/noPhoto.jpg'){fs.unlink(path.join('public',userDB.avatar) ,(err) => {
+        if(userDB.avatar!='images/profiles/noPhoto.jpg'){fs.unlink(path.join('public',userDB.avatar) ,(err) => {
             if (err) {
               console.error(err);
             }

@@ -7,13 +7,12 @@
     
     <div class="applications" id="applications">
         <div class="section-title">Applications</div>   
-       {{#if appsAny}}
         <div class="filterbar" >
-            <form action="" class="filters">
+            <form action="/filterBar" method="post" class="filters" id="filterBar">
                 <legend>Enter your filters:</legend>
                 <div class="fieldset">
                     <div class="filter"><label for="Proffesion">Desired Field:</label>
-                        <select name="Proffesion" id="Proffesion">
+                        <select name="proffesion" id="Proffesion">
                             <option value="all">All</option>
                             <option value="algorithm-engineer">Algorithm Engineer</option>
                             <option value="front-end">Front-end</option>
@@ -32,7 +31,7 @@
                     </div>
                         
                     <div class="filter"><label for="Job-type">Job-type:</label>
-                        <select name="Job-type" id="Job-type">
+                        <select name="jobType" id="Job-type">
                             <option value="all">All</option>
                             <option value="Part-time">Part time</option>
                             <option value="Full-time">Full time</option>
@@ -40,9 +39,11 @@
                         </select>
                     </div>
                 </div>
-                <button name="submit" class="exit submit">Enter</button>
+                <button type="submit" class="exit submit">Enter</button>
             </form>
         </div>
+       {{#if appsAny}}
+
 
         <div class="applications-box" id="applications">
             {{#each apps}}

@@ -7,7 +7,7 @@ const emploeeSchema = new Schema({
   password:String,
   name:String,
   bio:String,
-  avatar:{type:String,default:'/images/profiles/noPhoto.jpg'},
+  avatar:{type:String,default:'images/profiles/noPhoto.jpg'},
   applications:[{app:{type:Schema.Types.ObjectId,ref:'Application'},statusOfApp:String}],
 });
 

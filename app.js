@@ -31,6 +31,7 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 //init session options for the user 
@@ -39,7 +40,7 @@ app.use(session({
   saveUninitialized:false,
   resave:false,
 }));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/login', loginRouter);
