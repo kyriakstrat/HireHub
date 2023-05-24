@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito Sans">
+    <script defer src="/javascripts/main.js"></script>
+    <title>HireHub|Profile</title>
+</head>
+<body>
+    {{>navbar}}
+    {{#user}}
+    <div><img src="/{{avatar}}" width="200" height="200"alt=""></div>
+    <div>email: <span>{{email}}</span></div>
+    <div>password: <span>{{password}}</span></div>
+    <div>Username: <span>{{name}} </span></div>
+    <div>Bio: <span>{{bio}} </span></div>
+    {{/user}}
+    {{#if editProfile}}
+    <form action="profile/editProfile" method="post" enctype="multipart/form-data">
+        <div>
+        <label for="name">Username:</label>
+        <input type="text" name="name" id="">
+        </div>
+        <div>
+        <div>Bio:</div>
+        <textarea name="bio" id="" cols="30" rows="5" placeholder="Enter your bio here"></textarea>
+        </div>
+        <div>
+            <label for="avatar"> Insert profile picture:</label>
+            <input type="file" name="avatar" id="avatar" accept="image/png,image/jpeg">
+        </div>
+        <div>
+            <label for="cv">Insert CV:</label>
+            <input type="file" name="cv" id="cv" accept="application/pdf">
+        </div>
+        <button type="submit">Edit</button>
+    </form>
+    {{/if}}
+    {{>footer}}
+</body>
+</html>

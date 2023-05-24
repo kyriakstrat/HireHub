@@ -1,2 +1,2 @@
 # HireHub
-A job seeking app dskjfkdjf
+Dont upload the "node_modules" folder. Create it and run npm install command 
