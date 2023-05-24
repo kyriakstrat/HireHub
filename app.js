@@ -18,7 +18,6 @@ async function main(){
 const hbs = require('hbs');
 var path = require('path');
 var logger = require('morgan');
-
 const session = require('express-session');
 
 var loginRouter = require('./routes/login');

@@ -12,13 +12,14 @@
 <body>
     {{>navbar}}
     {{#user}}
+    <div><img src="/{{avatar}}" width="200" height="200"alt=""></div>
     <div>email: <span>{{email}}</span></div>
     <div>password: <span>{{password}}</span></div>
     <div>Username: <span>{{name}} </span></div>
     <div>Bio: <span>{{bio}} </span></div>
     {{/user}}
     {{#if editProfile}}
-    <form action="profile/editProfile" method="post">
+    <form action="profile/editProfile" method="post" enctype="multipart/form-data">
         <div>
         <label for="name">Username:</label>
         <input type="text" name="name" id="">
