@@ -14,13 +14,13 @@
     {{#user}}
     <div>email: <span>{{email}}</span></div>
     <div>password: <span>{{password}}</span></div>
-    <div>name: <span>{{name}} </span></div>
+    <div>Username: <span>{{name}} </span></div>
     <div>Bio: <span>{{bio}} </span></div>
     {{/user}}
     {{#if editProfile}}
-    <form action="#">
+    <form action="profile/editProfile" method="post">
         <div>
-        <label for="name">Fullname:</label>
+        <label for="name">Username:</label>
         <input type="text" name="name" id="">
         </div>
         <div>
@@ -28,7 +28,7 @@
         <textarea name="bio" id="" cols="30" rows="5" placeholder="Enter your bio here"></textarea>
         </div>
         <div>
-            <label for="avatar"> Insert avart picture:</label>
+            <label for="avatar"> Insert profile picture:</label>
             <input type="file" name="avatar" id="avatar" accept="image/png,image/jpeg">
         </div>
         <div>

@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const employerSchema = new Schema({
   email:String,
   password:String,
+  name:String,
+  bio:String,
   applications: [{type:Schema.Types.ObjectId,ref:'Application'}],
 });
 
