@@ -7,7 +7,29 @@ const Employer = require("../models/employer");
 const { default: mongoose } = require('mongoose');
 const { registerHelper } = require('hbs');
 // const ApplicationRequest = require("../models/applicationRequest");
+const path = require('path');
+const fs = require('fs');
+const multer = require('multer');
 
+const storage = multer.diskStorage({
+    destination: 'public/images/applications/',
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const extension = path.extname(file.originalname);
+      cb(null, file.fieldname + '-' + uniqueSuffix + extension);
+    }
+  });
+
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = ['.png', '.jpg', '.jpeg'];
+    const extension = path.extname(file.originalname).toLowerCase();
+    if (allowedTypes.includes(extension)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only PNG, JPG, and JPEG files are allowed.'));
+    }
+  };
+  const upload = multer({storage ,fileFilter });
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
@@ -62,21 +84,34 @@ router.get('/log_out',function(req,res){
   res.redirect('/');
 });
 
-router.post('/create_application',async (req,res)=>{
+router.post('/create_application',upload.single('appPhoto'),async (req,res)=>{
   // creates application with id of the employer and the rest data from the form.
+  let file; 
+  if(req.file){
+    file = path.relative('public',req.file.path) ;
+  }else{file = 'images/applications/noPhoto.jpg'}
   const app = await new Application({
     author:req.session.user,
     typeOfWork:req.body.jobType,
     region:req.body.region,
     field:req.body.proffesion,
     description:req.body.jobDescription,
-    companyName:req.body.companyName
+    companyName:req.body.companyName,
+    photo:file,
   }).save();
-
+ 
   res.redirect("/");
 });
 
 router.get("/delete_app/:_id",async function(req,res){
+  app = await Application.findById(mongoose.Types.ObjectId(req.params._id));
+  console.log(app);
+  if(app.photo!='images/applications/noPhoto.jpg'){fs.unlink(path.join('public',app.photo) ,(err) => {
+    if (err) {
+      console.error(err);
+    }
+  });}
+
   await Application.findByIdAndDelete(req.params._id);
   //{TODO} must delete application Requests associated to the app as well. 
   res.redirect('/');

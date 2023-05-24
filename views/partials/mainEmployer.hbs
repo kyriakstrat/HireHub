@@ -4,7 +4,7 @@
     <div class="applications-box" id="applications">
         {{#each apps}}
             <div class="application">
-                <img src="images/logos/noPhoto.jpg" alt="">
+                <img src="/{{photo}}" alt="">
                 <div class="application-description">
                     <div class="company">{{companyName}}</div>
                     <div class="application-info">Job Type:{{typeOfWork}}</div>
@@ -41,8 +41,8 @@
     <div class="add_applications" id="add_applications">
         <div class="section-title">Create Application</div>
         
-        <form action="/create_application" method="post" class="contact-form">
-          <div class="section"><span class="id">Company Name:</span><div class="in"><input type="text" name='companyName' placeholder='Company Name' class="email"><span class="asterisc">*</span></div></div>
+        <form action="/create_application" method="post" enctype="multipart/form-data" class="contact-form">
+          <div class="section"><span class="id">Company Name:</span><div class="in"><input type="text" name='companyName' placeholder='Company Name' class="email" required><span class="asterisc" >*</span></div></div>
           <div class="filter"><label for="Proffesion">Desired Field:</label>
             <select name="proffesion" id="Proffesion">
                 <option value="other">other</option>
@@ -70,8 +70,11 @@
                 <option value="Internship">Internship</option>
             </select>
         </div>
-          <div class="message-section"><div>Job Description</div><textarea name='jobDescription'type="text" placeholder='type your text...' class="message"></textarea></div>
-          
+          <div class="message-section"><div>Job Description</div><textarea name='jobDescription'type="text" placeholder='type your text...' class="message" required></textarea></div>
+          <div class="application-photo"> 
+            <label for="appPhoto"> Insert application picture:</label>
+            <input type="file" name="appPhoto" id="appPhoto" accept="image/png,image/jpeg">    
+         </div>
           <button type="submit" class="exit submit">Enter</button>
         </form>
       </div>

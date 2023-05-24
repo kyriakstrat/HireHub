@@ -9,6 +9,8 @@ const applicationSchema = new Schema({
   companyName: String,
   field: String,
   description: String,
+  photo:{type:String,default:'images/applications/noPhoto.jpg'},
+  interview:String,
   applicants: [{userId:{type:Schema.Types.ObjectId,ref:"Emploee"},status:Number,name:String}],
 
 },
