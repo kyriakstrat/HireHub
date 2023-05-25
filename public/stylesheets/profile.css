@@ -1,0 +1,131 @@
+*{
+    font-family: Nunito Sans;
+    cursor: default;
+    color:rgb(73, 73, 73);
+}
+body{
+    margin:0;
+    min-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.usersImg{
+    border-radius: 5%;
+}
+
+.card{
+    display: flex;
+    margin: 2em;
+    flex-wrap: wrap;
+}
+
+.card div{
+    font-size: 1.2em;
+}
+
+.bio{
+    margin-left: 4em;
+    max-width: 200px;
+    font-size: 1.2em;
+    word-wrap: break-word;
+}
+
+.usersInfo{
+    margin-left:30px;
+    column-count: 1;
+    column-gap: 20px;
+}
+
+.mail{
+    margin-top: 30px;
+}
+
+.button1{
+    border-radius: 10px;
+    background-color: rgba(26,118,255,255);;
+    padding: 10px;
+    border: 0px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:opacity 0.5s;
+    transition-duration: 1s ;
+    color: white;
+    margin: 2em;
+    max-width: 70px;
+    font-size: 1.1em;
+}
+
+.button1:hover{
+    transform: scale(1.1);
+}
+
+.fade2{
+    display: none;
+    pointer-events:none;
+    z-index: -1;
+}
+
+.content{
+    flex:1;
+}
+
+footer{
+    flex-shrink: 0;
+}
+
+footer b{
+    color: white;
+}
+footer div{
+    color: white;
+    background-color: rgb(73, 73, 73);
+}
+
+.form{
+  margin: 2em;  
+}
+
+.submitBut{
+    border-radius: 10px;
+    background-color: rgba(26,118,255,255);;
+    padding: 10px;
+    border: 0px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:opacity 0.5s;
+    transition-duration: 1s ;
+    color: white;
+    margin-top: 10px;
+    max-width: 70px;
+    font-size: 1.1em;
+}
+
+.message{
+    width: 95%;
+    height: 150px;
+    cursor: pointer;
+ }
+
+ .message:focus-visible{
+    outline-color: rgba(26,118,255,0.8);
+ }
+
+.username{
+    width: 200px;
+    
+    color: rgba(26,118,255,255);
+    border: 0;
+    border-bottom: 1px solid rgb(73, 73, 73);
+    cursor: pointer;
+
+}
+.username:focus-visible{
+    outline: none;
+    border-bottom: 2px solid rgba(26,118,255,0.8);
+}

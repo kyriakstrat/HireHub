@@ -1,0 +1,270 @@
+*{
+    color: white;
+    font-family: Nunito Sans;
+    min-width: 150px;
+    cursor: default;
+}
+body{
+    margin:0;
+    min-width: 600px;
+}
+.container{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    top:0;
+    right: 0;
+}
+
+.item{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s linear;
+}
+
+#item1{
+    background-color: rgba(26,118,255,255);
+}
+#item2{
+    background-color: rgba(107,204,253,255);
+}
+
+.login{
+    text-align: center;
+    color: white;
+    margin: 30px;
+    transition: transform 0.3s ease-in-out,opacity 0.3s ease-in-out;
+}
+
+.image{
+    padding: 10px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#im2{
+    right: 10px;
+}
+
+.bold{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+button{
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
+    border: 0px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:opacity 0.5s;
+    transition-duration: 1s ;
+}
+#but1{
+    color: rgba(26,118,255,255);
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+#but2{
+    color: rgba(107,204,253,255);
+}
+
+.signIn {
+    margin-top: 10px;
+    cursor: pointer;  
+}
+
+.signIn:hover{
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.logo{
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition:opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.logo:hover{
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.5);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.fade{
+    opacity: 0;
+    pointer-events:none;
+}
+.fade2{
+    opacity: 0;
+    pointer-events:none;
+    z-index: -1;
+}
+
+.lower{
+    transition:opacity 0.3s linear;
+}
+
+.translateY{
+    transform: translateY(60px);
+}
+
+#form1{
+    position: absolute;
+    left:-100vw;
+    background-color: white;
+    transition: left 0.3s ease-in-out;
+}
+#form2{
+    position: absolute;
+    right:-100vw;
+    background-color: white;
+    transition: right 0.3s ease-in-out;
+}
+
+div.Welcome{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 30px 0px;
+    color:black;
+}
+
+input{
+    min-width: 290px;
+    width: 90%;
+    padding: 20px;
+    margin-bottom: 1px;
+    margin-right: 10px;
+    text-align:left;
+    border: none;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: 5px 10px 18px #888888;
+    cursor:pointer
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+}
+
+::placeholder { 
+    color: grey;
+    opacity: 0.8;
+    font-size: 1.2em;
+}
+
+.sign{
+    margin: 30px 0px;
+}
+
+.signUp{
+    background-color:rgba(26, 118, 255);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.signUp:hover{
+    transform: scale(1.2);
+    background-color: white;
+    color:black;
+    cursor: pointer;
+}
+
+button.employer{
+    color: rgba(26,118,255,255);
+    background-color: none;
+    
+}
+
+button.seeker{
+    background-color: none;
+    color: rgba(107,204,253,255);
+}
+
+#loginBut{
+    box-shadow: black;
+}
+
+.backwards a{
+    color: rgba(46, 45, 45, 0.778);
+    margin: 0;
+}
+.backwards{
+    margin-left: 30px;
+
+}
+
+.loginFrame{
+    padding: 10px;
+    /* min-height: 50%; */
+    width: 400px;
+    height: 400px;
+    /* display: flex;
+    justify-content: left; */
+    position:absolute;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transition: opacity 0.5s ease-in-out;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 5px 10px 18px #888888;
+}
+.hidden{
+    z-index: -1;
+    opacity: 0;
+}
+
+.signInBut{
+    background-color:rgba(26, 118, 255);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    border-radius: 4px;
+}
+.close{
+    color: gray;
+}
+.account{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
