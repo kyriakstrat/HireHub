@@ -56,7 +56,6 @@ function counter(counter){
 function counter2(counter){
     //counts the elements that are being displayed
     let arrowLeft,arrowRight,totalApps,from,to,pageNumber,applicationsArr;
-    
     arrowLeft = document.querySelector('.my-applications .left');
     arrowRight = document.querySelector('.my-applications .right');
     totalApps= document.querySelector('.my-applications .total-application');
@@ -68,7 +67,6 @@ function counter2(counter){
     pageNumber.innerHTML = counter;
     from.innerHTML = counter*5-4;
     to.innerHTML = Math.min(counter*5,applicationsArr.length);
-    console.log(applicationsArr.length);
     
     arrowLeft.addEventListener('click',()=>{
         pageNumber.innerHTML = counter;
@@ -110,6 +108,8 @@ function appsShow(applications,num){
     // let applications = document.querySelectorAll('.applications .application');
     
     const show = applications.slice((num-1)*5,Math.min(applications.length,(num)*5));
+    console.log(show.length)
+
     applications.forEach(app => {
         app.classList.add('hide');
     });
@@ -123,6 +123,7 @@ function showMore(){
     links.forEach(link => {
         // console.log('Show more!')
         link.addEventListener('click',()=>{
+
             // console.log(link.parentNode.previousElementSibling);
             link.parentNode.previousElementSibling.classList.toggle('less');
             // link.previousElementSibling.classList.toggle('hide2');
@@ -138,7 +139,11 @@ function showMore(){
 
 function statusBars(){
     const statusSpan =document.querySelectorAll('.status');
+    
     for(span of statusSpan){
+        // const application = span.closest('.application');
+        // const interviewDiv = application.querySelector('.interview');
+        // interviewDiv.classList.add('hide');
         // console.log(span);
         switch (span.innerHTML){
             case '0':
@@ -147,7 +152,10 @@ function statusBars(){
                 break;
             case '1':
                 span.innerHTML = 'Accepted';
+
                 span.style.backgroundColor = 'green'
+                // interviewDiv.classList.remove('hide');
+
                 break;
             case '2':
                 // console.log('2');
@@ -157,7 +165,34 @@ function statusBars(){
         }
     }
 }
+function interviewShow(){
+    const statusSpan =document.querySelectorAll('.status');
+    for(span of statusSpan){
+        const application = span.closest('.application');
+        const interviewDiv = application.querySelector('.interview');
+        interviewDiv.classList.add('hide');
+        console.log(span);
+        switch (span.innerHTML){
+            case '0':
+                span.innerHTML = 'Pending';
+                span.style.backgroundColor = 'yellow'
+                break;
+            case '1':
+                span.innerHTML = 'Accepted';
 
+                span.style.backgroundColor = 'green'
+                interviewDiv.classList.remove('hide');
+
+                break;
+            case '2':
+                // console.log('2');
+                span.innerHTML = 'Rejected';
+                span.style.backgroundColor = 'red'
+                break;
+        }
+    }
+
+}
 
 // main
 const applications = Array.from(document.querySelectorAll('.applications .application'));
@@ -184,21 +219,18 @@ const mypageNumberApllications = document.querySelector('.my-applications .page-
 // initializations
 num1=1;
 num2=1;
+console.log(applications.length);
 if(applications.length){
     counter(1);
     counter2(1);
-    statusBars();
     appsShow(applications,num1);
-    // appsShow(myapplications,num2);
-    // apply(applications);
+    interviewShow()
     showMore();
 }else{
+    let myapplications = Array.from(document.querySelectorAll('.my-applications .application'));
     counter2(1);
-    appsShow(applications,num1);
+    appsShow(myapplications,num1);
     statusBars();
-
-    // appsShow(myapplications,num2);
-    // apply(applications);
     showMore();
 
 }

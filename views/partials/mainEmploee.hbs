@@ -59,7 +59,7 @@
 
                         Description: {{description}}
                         {{#author}}
-                        <div>author:<b>{{email}}</b></div>
+                        <div>author:<a href="/profile/{{_id}}">{{email}}</a></div>
                         {{/author}}
                     </div>
                     <div class="show-more"><a href='/apply/{{_id}}' class="apply exit">Apply now</a><span class="more">Show More</span></div>
@@ -94,9 +94,11 @@
                     <div class="application-info less" id="description">
                         Description: {{description}}
                         {{#author}}
-                        <div>author:<b>{{email}}</b></div>
+                        <div>author: <a href="/profile/{{userId}}">{{email}}</a></div>
                         {{/author}}
                     </div>
+                    <div class="application-info interview">interview: {{interview}}</div>              
+
                     <div class="show-more"><a href='/cancel/{{_id}}' class="apply exit">Cancel</a>
                     <span>Status:</span><span class="status">{{stat}}</span> 
                     <span class="more">Show More</span></div>

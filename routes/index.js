@@ -10,6 +10,7 @@ const { registerHelper } = require('hbs');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
+const internal = require('stream');
 
 const storage = multer.diskStorage({
     destination: 'public/images/applications/',
@@ -97,6 +98,7 @@ router.post('/create_application',upload.single('appPhoto'),async (req,res)=>{
     field:req.body.proffesion,
     description:req.body.jobDescription,
     companyName:req.body.companyName,
+    interview:req.body.interview,
     photo:file,
   }).save();
  
