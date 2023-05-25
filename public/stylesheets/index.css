@@ -7,6 +7,78 @@ body{
     margin:0;
     min-width: 600px;
 }
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255,255,255,0.8);
+    align-items: center;
+    height: 80px;
+    overflow: hidden;
+    position: sticky;
+    transition: background-color 500ms ease-in-out;
+    top:0;
+    z-index: 1;
+}
+.navbar:hover{
+    background-color: rgba(255,255,255,0.95);
+}
+.menu{
+    display: flex;
+    
+    justify-content:space-between;
+    width: 500px;
+    text-align: center;
+    margin:0;
+    font-size: 1.3em;
+    padding: 0;
+    
+}
+.menu li{
+    list-style: none;
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    
+}
+li a{
+    text-decoration: none;
+    color: rgb(73, 73, 73);
+    cursor: pointer;
+    transition: border-top 0.1s ease-out;
+    
+}
+li a:hover{
+    color: rgba(26,118,255,255);
+    border-top: 3px solid rgba(26,118,255,255);
+    border-radius: 5px;
+}
+.logo{
+    margin-left: 30px;
+    margin-top: 10px;
+    
+}
+.logo img{
+    cursor: pointer;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.exit{
+    background-color: rgba(26,118,255,255);
+    padding: 7px;
+    border-radius: 10px;
+    margin-right: 20px;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+.exit:hover{
+    background-color: white;
+    color:rgb(73, 73, 73); 
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
 
 .banner{
     /* border-radius: 40px; */
@@ -215,8 +287,8 @@ footer div{
     width: 95%;
     height: 150px;
     
- }
 
+ }
  .contact-form .message:focus-visible{
     outline-color: rgba(26,118,255,0.8);
  }

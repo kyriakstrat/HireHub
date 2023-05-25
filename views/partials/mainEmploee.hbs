@@ -44,7 +44,7 @@
         </div>
        {{#if appsAny}}
 
-
+        
         <div class="applications-box" id="applications">
             {{#each apps}}
             <div class="application">
@@ -59,7 +59,7 @@
 
                         Description: {{description}}
                         {{#author}}
-                        <div>author:<b>{{email}}</b></div>
+                        <div>author:<a href="/profile/{{_id}}">{{email}}</a></div>
                         {{/author}}
                     </div>
                     <div class="show-more"><a href='/apply/{{_id}}' class="apply exit">Apply now</a><span class="more">Show More</span></div>
@@ -67,8 +67,9 @@
                 </div>
             </div>
             {{/each}}
+        </div>
         <div class="counter">
-            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">10</span></div>
+            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">{{appsAny}}</span></div>
             <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
         </div>
         {{else}}
@@ -93,9 +94,11 @@
                     <div class="application-info less" id="description">
                         Description: {{description}}
                         {{#author}}
-                        <div>author:<b>{{email}}</b></div>
+                        <div>author: <a href="/profile/{{userId}}">{{email}}</a></div>
                         {{/author}}
                     </div>
+                    <div class="application-info interview">interview: {{interview}}</div>              
+
                     <div class="show-more"><a href='/cancel/{{_id}}' class="apply exit">Cancel</a>
                     <span>Status:</span><span class="status">{{stat}}</span> 
                     <span class="more">Show More</span></div>
@@ -104,7 +107,7 @@
             </div>
             {{/each}}
         <div class="counter">
-            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">10</span></div>
+            <div>showing <span class="current-application from">1</span> to <span class="current-application to"></span> out of <span class="total-application">{{myAppsAny}}</span></div>
             <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
         </div>
       
