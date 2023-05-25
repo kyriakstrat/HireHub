@@ -63,7 +63,7 @@ router.get('/', async function(req, res, next) {
       }
       // console.log(myApplications);
       // console.log(appStatus);
-      
+      console.log(applications.length);
       res.render('index',{
         employer:false,
         appsAny:applications.length,
@@ -213,4 +213,5 @@ router.post('/filterBar',async function(req,res){
     myApps:tmp,
   });
 });
+
 module.exports = router;

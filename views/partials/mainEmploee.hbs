@@ -44,7 +44,7 @@
         </div>
        {{#if appsAny}}
 
-
+        
         <div class="applications-box" id="applications">
             {{#each apps}}
             <div class="application">
@@ -67,8 +67,9 @@
                 </div>
             </div>
             {{/each}}
+        </div>
         <div class="counter">
-            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">10</span></div>
+            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">{{appsAny}}</span></div>
             <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
         </div>
         {{else}}
@@ -104,7 +105,7 @@
             </div>
             {{/each}}
         <div class="counter">
-            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">10</span></div>
+            <div>showing <span class="current-application from">1</span> to <span class="current-application to"></span> out of <span class="total-application">{{myAppsAny}}</span></div>
             <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
         </div>
       
