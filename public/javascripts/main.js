@@ -221,14 +221,15 @@ num1=1;
 num2=1;
 console.log(applications.length);
 if(applications.length){
-    counter(1);
-    counter2(1);
+    try{counter(1)}catch(err){console.log(err)}
+    try{counter2(1)}catch(err){console.log(err)}
+
     appsShow(applications,num1);
     interviewShow()
     showMore();
 }else{
     let myapplications = Array.from(document.querySelectorAll('.my-applications .application'));
-    counter2(1);
+    try{counter2(1)}catch(err){console.log(err)}
     appsShow(myapplications,num1);
     statusBars();
     showMore();
