@@ -1,43 +1,62 @@
-<div class="my-applications">
-    <div class="application-offers" id="application-offers">
-        <div class="section-title">My Offers</div>
-        {{#if appsAny}}
-        <div class="applications-box" id="applications">
-            {{#each apps}}
-                <div class="application">
-                    <img src="/{{photo}}" alt="">
-                    <div class="application-description">
-                        <div class="company">{{companyName}}</div>
-                        <div class="application-info">Job Type:{{typeOfWork}}</div>
-                        <div class="application-info">Proffesion Field:{{field}} </div>
-                        <div class="application-info">Location:{{region}} </div>
-                        <div class="application-info">interview date:{{interview}} </div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheets/index.css">
+        <link rel="stylesheet" href="/stylesheets/navbar.css">
+        <link rel="stylesheet" href="/stylesheets/employer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito Sans">
+        <script defer src="javascripts/main.js"></script>
+        <title>HireHub</title>
+    </head>
 
-                        <!-- less             -->
-                        <div class="application-info less" id="description">
-                            <div>Description:{{description}}</div>
-                            <ul class="applicants">
-                                {{#each applicants}}
-                                <li><a href="/profile/{{userId}}">{{name}}</a> <a href="/accept/{{userId}}/{{_id}}">Accept</a> <a href="/reject/{{userId}}/{{_id}}">Reject</a><span class="status">{{status}}</span> </li>
-                                {{/each}}
-                            </ul>
+
+    <div class="my-applications">
+        <div class="application-offers" id="application-offers">
+            <div class="section-title">My Offers</div>
+            {{#if appsAny}}
+            <div class="applications-box" id="applications">
+                {{#each apps}}
+                    <div class="application">
+                        <img src="/{{photo}}" alt="">
+                        <div class="application-description">
+                            <div class="company">{{companyName}}</div>
+                            <div class="application-info">Job Type:{{typeOfWork}}</div>
+                            <div class="application-info">Proffesion Field:{{field}} </div>
+                            <div class="application-info">Location:{{region}} </div>
+                            <div class="application-info">Interview date:{{interview}} </div>
+
+                            <!-- less             -->
+                            <div class="application-info less" id="description">
+                                <div>Description:{{description}}</div>
+                                <ul class="applicants">
+                                    {{#each applicants}}
+                                    <li>
+                                        <div class="employersOpt">
+                                            <a href="/profile/{{userId}}">{{name}}</a> <a href="/accept/{{userId}}/{{_id}}">Accept</a> <a href="/reject/{{userId}}/{{_id}}">Reject</a><span class="status">{{status}}</span>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <div class="show-more"><a href= '/delete_app/{{_id}}' class="delete exit">Delete Application</a> <span class="more">Show More</span></div>
+                            
                         </div>
-                        <div class="show-more"><a href= '/delete_app/{{_id}}' class="delete">Delete Application</a> <span class="more">Show More</span></div>
-                        
                     </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            </div>
+            <div class="counter">
+                <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">{{appsAny}}</span></div>
+                <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
+            </div>
+            {{else}}
+            <div>You have not made any application!</div>
+            {{/if}}
+                
         </div>
-        <div class="counter">
-            <div>showing <span class="current-application from">1</span> to <span class="current-application to">5</span> out of <span class="total-application">{{appsAny}}</span></div>
-            <div><span class="arrow left">&lt;</span><span class="page-number">1</span><span class="arrow right">&gt;</span></div>
-        </div>
-        {{else}}
-        <div>You have not made any application!</div>
-        {{/if}}
-            
     </div>
-</div>
 
     <div class="add_applications" id="add_applications">
         <div class="section-title">Create Application</div>
@@ -73,7 +92,7 @@
         </div>
           <div class="message-section"><div>Job Description</div><textarea name='jobDescription'type="text" placeholder='type your text...' class="message" required></textarea></div>
           
-          <div class="section"><span class="id">interview Date:</span><div class="in"><input type="text" name='interview' placeholder='interview date' class="email" required><span class="asterisc" >*</span></div></div>
+          <div class="section"><div class="id">Interview Date:</div><div class="in"><input type="text" name='interview' placeholder='interview date' class="email" required><span class="asterisc" >*</span></div></div>
           
 
           <div class="application-photo"> 
@@ -84,3 +103,5 @@
         </form>
       </div>
     </div>
+
+</html>

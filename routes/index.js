@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const storage = multer.diskStorage({
-  destination: 'public/images/profiles/',
+  destination: 'public/images/applications/',
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     const extension = path.extname(file.originalname);

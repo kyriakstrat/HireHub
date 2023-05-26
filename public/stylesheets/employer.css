@@ -1,0 +1,33 @@
+.employersOpt a{
+    margin:18px;
+    text-decoration: none;
+}
+
+.employersOpt span{
+    margin-left: 10px;
+}
+
+li a:hover{
+    color: rgba(26,118,255,255);
+    border-bottom: 3px solid rgba(26,118,255,255);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exit{
+    background-color: rgba(26,118,255,255);
+    padding: 7px;
+    border-radius: 10px;
+    margin-right: 20px;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+}
+.exit:hover{
+    background-color: white;
+    color:rgb(73, 73, 73); 
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
