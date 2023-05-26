@@ -120,13 +120,13 @@ function appsShow(applications,num){
 
 function showMore(){
     const links = document.querySelectorAll('.show-more .more');
+    
     links.forEach(link => {
         // console.log('Show more!')
         link.addEventListener('click',()=>{
-
-            // console.log(link.parentNode.previousElementSibling);
-            link.parentNode.previousElementSibling.classList.toggle('less');
-            // link.previousElementSibling.classList.toggle('hide2');
+            const description = link.closest('.application-description');
+            const info = description.querySelector('#description');
+            info.classList.toggle('less');
             if(link.innerHTML=='Show More'){
                 link.innerHTML='Show Less';
             }
@@ -141,10 +141,7 @@ function statusBars(){
     const statusSpan =document.querySelectorAll('.status');
     
     for(span of statusSpan){
-        // const application = span.closest('.application');
-        // const interviewDiv = application.querySelector('.interview');
-        // interviewDiv.classList.add('hide');
-        // console.log(span);
+
         switch (span.innerHTML){
             case '0':
                 span.innerHTML = 'Pending';
