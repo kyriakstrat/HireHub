@@ -95,10 +95,10 @@ exports.deleteApplication = async function (req, res) {
     if (app.photo !== 'images/applications/noPhoto.jpg') {
       fs.unlinkSync(path.join('public', app.photo));
     }
-    await Application.findByIdAndDelete(req.params._id);
     res.redirect('/');
   } catch (error) {
     console.error('Error deleting application:', error);
+    await Application.findByIdAndDelete(req.params._id);
     res.redirect('/');
   }
 };
