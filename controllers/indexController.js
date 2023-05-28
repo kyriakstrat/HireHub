@@ -94,6 +94,7 @@ exports.deleteApplication = async function (req, res) {
     const app = await Application.findById(mongoose.Types.ObjectId(req.params._id));
     if (app.photo !== 'images/applications/noPhoto.jpg') {
       fs.unlinkSync(path.join('public', app.photo));
+    await Application.findByIdAndDelete(req.params._id);
     }
     res.redirect('/');
   } catch (error) {
@@ -148,7 +149,6 @@ exports.acceptApplicant = async function (req, res) {
         item.status = 1;
         res.redirect('/');
         app.save();
-        break;
       }
     }
   } catch (error) {

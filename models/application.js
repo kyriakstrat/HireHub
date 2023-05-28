@@ -16,11 +16,4 @@ const applicationSchema = new Schema({
 },
 {timestamps:true});
 
-// // Virtual for bookinstance's URL
-// applicationSchema.virtual("url").get(function () {
-//   // We don't use an arrow function as we'll need the this object
-//   return `/catalog/bookinstance/${this._id}`;
-// });
-
-// Export model
 module.exports = mongoose.model("Application", applicationSchema);
